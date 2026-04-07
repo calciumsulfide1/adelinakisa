@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden; background-color: #000;
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer;
+        }
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        img {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: opacity 0.6s ease-in-out;
+            opacity: 0;
+            z-index: 1;
+        }
+        img.active { opacity: 1; z-index: 2; }
+    </style>
+</head>
+<body>
+    <div class="container" id="gallery">
+        <img src="https://i.ibb.co/xK39HdpQ/IMG-7332.jpg" class="active" referrerpolicy="no-referrer">
+        <img src="https://i.ibb.co/kZNS9Zf/IMG-7333.jpg" referrerpolicy="no-referrer">
+        <img src="https://i.ibb.co/hFy9jgvM/IMG-7334.jpg" referrerpolicy="no-referrer">
+        <img src="https://i.ibb.co/39BJW9vL/IMG-7335.jpg" referrerpolicy="no-referrer">
+        <img src="https://i.ibb.co/PvHNwCLY/IMG-7336.jpg" referrerpolicy="no-referrer">
+        <img src="https://i.ibb.co/Z6txYcZb/IMG-7337.jpg" referrerpolicy="no-referrer">
+        <img src="https://i.ibb.co/TM8xx7Pb/IMG-7338.jpg" referrerpolicy="no-referrer">
+        <img src="https://i.ibb.co/8gcw1t32/IMG-7339.jpg" referrerpolicy="no-referrer">
+        <img src="https://i.ibb.co/Y4w8mhHh/IMG-7340.jpg" referrerpolicy="no-referrer">
+        <img src="https://i.ibb.co/k7Bg0ZD/IMG-7341.jpg" referrerpolicy="no-referrer">
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('#gallery img');
+        let current = 0;
+        document.body.onclick = () => {
+            images[current].classList.remove('active');
+            current = (current + 1) % images.length;
+            images[current].classList.add('active');
+        };
+    </script>
+</body>
+</html>
